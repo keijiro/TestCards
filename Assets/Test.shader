@@ -2,10 +2,11 @@
 {
     Properties
     {
-        [KeywordEnum(Fill, Spectrum, Checker)]
+        [KeywordEnum(Fill, Spectrum, Checker, Pattern)]
         _Mode("Mode", Int) = 0
         _Color("Color", Color) = (0.5, 0.5, 0.5)
         _Scale("Scale", Float) = 1
+        _PatternTex("Test Pattern", 2D) = "White" {}
     }
 
     CGINCLUDE
@@ -37,6 +38,7 @@
 
     half3 _Color;
     half _Scale;
+    sampler2D _PatternTex;
 
     v2f vert(appdata v)
     {
@@ -67,6 +69,10 @@
         rgb = fmod(x + y, 2);
         #endif
 
+        #if defined(_MODE_PATTERN)
+        rgb = tex2D(_PatternTex, i.uv.xy);
+        #endif
+
         return half4(rgb, 1);
     }
 
@@ -79,7 +85,7 @@
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #pragma multi_compile _MODE_FILL _MODE_SPECTRUM _MODE_CHECKER
+            #pragma multi_compile _MODE_FILL _MODE_SPECTRUM _MODE_CHECKER _MODE_PATTERN
             ENDCG
         }
     }

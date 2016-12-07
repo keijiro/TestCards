@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9a2c891532846c748a08f46e44f41145
-timeCreated: 1480946936
+guid: 471a01aecc1ce9f478d76f1c8befb22a
+timeCreated: 1481124126
 licenseType: Pro
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -12,7 +12,7 @@ TrueTypeFontImporter:
   fontNames:
   - Noto Sans
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 03a02c9325950dd49bb4338d804480ab, type: 3}
+  - {fileID: 12800000, guid: 9a2c891532846c748a08f46e44f41145, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
