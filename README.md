@@ -13,16 +13,17 @@ How To Use
 ----------
 
 The `TestOverlay` component works as an image effect, so it has to be added to
-a camera object. It simply overdraws the entire screen with the test signals.
+a camera object before using. It simply overdraws the entire screen with a test
+pattern.
 
-Currently four signal modes are available for use.
+Currently four pattern modes are available for use.
 
-- Fill: simply fill the entire screen with a given color.
-- Spectrum: draws the color spectrum bars.
-- Checker: draws the checker pattern with a given scale.
-- Pattern: draws the TV test pattern.
+- **Fill**: simply fill the entire screen with a given color.
+- **Spectrum**: draws a grayscale bar and a color spectrum bar.
+- **Checker**: draws a checker pattern with a given scale.
+- **Pattern**: draws the PM5644 TV test pattern.
 
 License
 -------
 
-[MIT][LICENSE.md]
+[MIT](LICENSE.md)
