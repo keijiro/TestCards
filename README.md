@@ -21,9 +21,17 @@ Currently four pattern modes are available for use.
 - **Fill**: simply fill the entire screen with a given color.
 - **Spectrum**: draws a grayscale bar and a color spectrum bar.
 - **Checker**: draws a checker pattern with a given scale.
-- **Pattern**: draws the PM5644 TV test pattern.
+- **Pattern**: draws a TV test pattern.
 
 License
 -------
 
-[MIT](LICENSE.md)
+The scripts and the shaders are [released into the public domain][Unlicense].
+Feel free to use it.
+
+The TV test pattern (PM5644) was created by RTFMASAP and shared under a
+Creative Commons Attribution-Share Alike 3.0 Unported license. See the
+[Wikimedia Commons page][Wikimedia] for further details.
+
+[Unlicense]: http://unlicense.org/
+[Wikimedia]: https://commons.wikimedia.org/wiki/File:PM5644-1920x1080.gif
