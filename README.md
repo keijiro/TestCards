@@ -26,7 +26,7 @@ Currently four pattern modes are available for use.
 License
 -------
 
-The scripts and the shaders are [released into the public domain][Unlicense].
-Feel free to use it.
+The contents of this repository are [released into the public domain]
+[Unlicense]. Feel free to use it.
 
 [Unlicense]: http://unlicense.org/
