@@ -3,7 +3,7 @@ TestCards
 
 **TestCards** is a simple test pattern generator for Unity.
 
-![screenshot](http://i.imgur.com/cgC564r.png)
+![screenshot](http://i.imgur.com/NvPD8N2.png)
 ![screenshot](http://i.imgur.com/8P1LkKu.png)
 
 ![screenshot](http://i.imgur.com/B8Per7Q.png)
@@ -29,9 +29,4 @@ License
 The scripts and the shaders are [released into the public domain][Unlicense].
 Feel free to use it.
 
-The TV test pattern (PM5644) was created by RTFMASAP and shared under a
-Creative Commons Attribution-Share Alike 3.0 Unported license. See the
-[Wikimedia Commons page][Wikimedia] for further details.
-
 [Unlicense]: http://unlicense.org/
-[Wikimedia]: https://commons.wikimedia.org/wiki/File:PM5644-1920x1080.gif
