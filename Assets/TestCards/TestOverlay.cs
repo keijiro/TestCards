@@ -36,7 +36,6 @@ namespace TestCards
         #region Private members
 
         [SerializeField, HideInInspector] Shader _shader;
-        [SerializeField, HideInInspector] Texture2D _patternTexture;
         Material _material;
 
         #endregion
@@ -62,7 +61,6 @@ namespace TestCards
 
             _material.color = _color;
             _material.SetFloat("_Scale", 1.0f / Mathf.Pow(2, _scale));
-            _material.SetTexture("_PatternTex", _patternTexture);
 
             Graphics.Blit(source, destination, _material, (int)_mode);
         }
