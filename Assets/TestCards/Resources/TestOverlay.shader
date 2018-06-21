@@ -110,9 +110,37 @@
         half flash = frac(time) <= frac(time - deltaTime);
 
         half2 c2 = step(0.4999, frac(uv * 3.5));
-        half checker = lerp(0.05, 0.1, abs(c2.x - c2.y));
+        half checker = lerp(0.1, 0.2, abs(c2.x - c2.y));
 
-        return max(max(max(arc, circle), flash), checker);
+        half c = max(max(max(arc, circle), flash), checker);
+
+        #if defined(UNITY_COLORSPACE_GAMMA)
+        return half4(c, c, c, 1);
+        #else
+        return half4((half3)GammaToLinearSpace(c), 1);
+        #endif
+    }
+
+    half4 frag_frequency(v2f_img i) : SV_Target
+    {
+        float2 uv = i.uv.xy - 0.25;
+
+        half phi = atan2(uv.x * _MainTex_TexelSize.y * _MainTex_TexelSize.z, uv.y);
+        half lim = saturate(fwidth(phi) * 20); // frequency limitter
+        phi = lerp(sin(phi * 100), 0, lim);
+
+        float2 freq = UNITY_PI * 0.5 / (1 + uv * 4);
+        half2 comb = cos(freq * uv * _MainTex_TexelSize.zw);
+
+        half2 sig = uv > 0;
+        half c = lerp(phi, lerp(comb.x, comb.y, sig.y), abs(sig.x - sig.y));
+        c = c / 2 + 0.5;
+
+        #if defined(UNITY_COLORSPACE_GAMMA)
+        return half4(c, c, c, 1);
+        #else
+        return half4((half3)GammaToLinearSpace(c), 1);
+        #endif
     }
 
     ENDCG
@@ -153,8 +181,17 @@
         Pass
         {
             CGPROGRAM
+            #pragma multi_compile __ UNITY_COLORSPACE_GAMMA
             #pragma vertex vert_img
             #pragma fragment frag_shutter
+            ENDCG
+        }
+        Pass
+        {
+            CGPROGRAM
+            #pragma multi_compile __ UNITY_COLORSPACE_GAMMA
+            #pragma vertex vert_img
+            #pragma fragment frag_frequency
             ENDCG
         }
     }

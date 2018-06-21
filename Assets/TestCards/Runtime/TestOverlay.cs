@@ -8,7 +8,7 @@ namespace TestCards
     {
         #region Editable properties
 
-        public enum Mode { Fill, Spectrum, Checker, Pattern, Shutter }
+        public enum Mode { Fill, Spectrum, Checker, Pattern, Shutter, Frequency }
 
         [SerializeField] Mode _mode = Mode.Pattern;
 
