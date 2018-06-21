@@ -89,6 +89,32 @@
         return half4(rgb, 1);
     }
 
+    half4 frag_shutter(v2f_img i) : SV_Target
+    {
+        const float4 tsize = _MainTex_TexelSize;
+        const float radius = 0.45;
+
+        const float time = _Time.y;
+        const float deltaTime = unity_DeltaTime.x;
+
+        float2 uv = (i.uv - 0.5) * float2(tsize.y * tsize.z, 1);
+
+        float phi = atan2(-uv.x, -uv.y) / (UNITY_PI * 2) + 0.5;
+        half arc = saturate((phi - frac(time)) / fwidth(phi));
+
+        float dist = length(uv);
+        arc *= saturate((radius + tsize.y - dist) * tsize.w);
+
+        half circle = saturate(1 - abs(dist - radius) * tsize.w);
+
+        half flash = frac(time) <= frac(time - deltaTime);
+
+        half2 c2 = step(0.4999, frac(uv * 3.5));
+        half checker = lerp(0.05, 0.1, abs(c2.x - c2.y));
+
+        return max(max(max(arc, circle), flash), checker);
+    }
+
     ENDCG
 
     SubShader
@@ -122,6 +148,13 @@
             #pragma multi_compile __ UNITY_COLORSPACE_GAMMA
             #pragma vertex vert_img
             #pragma fragment frag_pattern
+            ENDCG
+        }
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert_img
+            #pragma fragment frag_shutter
             ENDCG
         }
     }
