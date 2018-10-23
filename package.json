@@ -1,7 +1,7 @@
 {
     "name": "jp.keijiro.testcards",
     "displayName": "Test Cards",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "unity": "2018.1",
     "description": "Graphic test pattern generator.",
     "dependencies": { }
