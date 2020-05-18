@@ -1,0 +1,12 @@
+{
+    "author": "Keijiro Takahashi",
+    "description": "Graphic test pattern generator",
+    "displayName": "Test Cards",
+    "keywords": [ "unity" ],
+    "license": "Unlicense",
+    "name": "jp.keijiro.testcards",
+    "repository": "github:keijiro/TestCards",
+    "unity": "2019.3",
+    "unityRelease": "0f1",
+    "version": "1.0.0"
+}
